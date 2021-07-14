@@ -164,7 +164,7 @@ const publishAsync = async (authToken, messageCount, numMessages) => {
 
   // Send events for high-frequency updates, update state only occasionally.
   const delayMs = argv.messageType === 'events' ? 1000 : 2000;
-  console.log(JSON.stringify(request));
+  console.log('Sending request', options);
   try {
     await request(options);
     console.log('Message sent.');
