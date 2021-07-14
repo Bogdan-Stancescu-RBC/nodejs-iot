@@ -142,11 +142,11 @@ const publishAsync = async (authToken, messageCount, numMessages) => {
   const postData =
     argv.messageType === 'events'
       ? {
-          binary_data: binaryData,
+          binaryData,
         }
       : {
           state: {
-            binary_data: binaryData,
+            binaryData,
           },
         };
 
