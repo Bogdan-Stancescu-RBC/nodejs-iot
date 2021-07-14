@@ -174,6 +174,14 @@ const publishAsync = async (authToken, messageCount, numMessages) => {
       console.error(
         `Received error: ${JSON.stringify(err.response.data.error)}`
       );
+      if (err.response.data.error.status === 'INVALID_ARGUMENT') {
+        console.warn("-------------------------");
+        console.warn(
+          "Please be advised that for telemetry events you have to create " +
+          "at least one default Cloud Pub/Sub topic in the device's registry!"
+        );
+        console.warn("-------------------------");
+      }
     }
   }
   if (messageCount < numMessages) {
@@ -220,7 +228,7 @@ const getConfig = async (authToken, version) => {
         `Received error: ${JSON.stringify(err.response.data.error)}`
       );
     }
-  }
+}
 };
 // [END iot_http_getconfig]
 
